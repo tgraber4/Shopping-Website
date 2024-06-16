@@ -1,3 +1,15 @@
+var allowWebImages = 0;
+if (window.location.href.includes("localhost:5500")) {
+    allowWebImages = 1;
+}
+var checkLink = function (linkValue) {
+    if (allowWebImages === 1) {
+        return linkValue;
+    } else {
+        return "./Images/no_image.jpg";
+    }
+}
+
 
 var SoptOptions = [];
 var SoptList = [];
@@ -258,8 +270,6 @@ var updateRestrictions = function (temp) {
             }
         }
     } // add new Restrictions Type here
-    console.log(JSON.stringify(copyRestrictions));
-    console.log(JSON.stringify(restrictions))
     if (JSON.stringify(copyRestrictions) != JSON.stringify(restrictions)) {
         updatesearch();
     }
@@ -395,6 +405,7 @@ var ClearSopt = function (num) {
 
     SoptOptions[num].displaycircleid = "";
     SoptOptions[num].circletextid = "";
+    updatesearch();
 }
 
 var addCircle = function (text, num) {
@@ -463,10 +474,12 @@ var pricechanger = function (digitnum) {
 }
 
 
-// Testing
+
+// update w3schools and github
+// add question mark
 
 var items = [{"name": "GV Socks", "price": 4.99, "desc": "N/A", "locations": "Any Store", "brand": "GV"}, {"name": "Orange", "desc": "N/A", "price": 1.99}, {"name": "Orange Socks", "price": 3.99, "desc": "N/A", "locations": "Any Store", "brand": "GV"}, {"name": "Apple", "price": 0.99, "desc": "N/A", "locations": "Any Store", "brand": "GV"}, {"name": "TV", "price": 199.99, "desc": "N/A", "locations": "Any Store", "brand": "GV"}]
-var imagelinks = ["https://i.imgur.com/cTRe4sr.png" , "https://i.imgur.com/E5JeHTB.jpg", "https://i.imgur.com/nwoWz1n.jpg", "https://i.imgur.com/j01dqOm.jpg", "https://i.imgur.com/N7Y2Sya.jpg", "https://i.imgur.com/N7Y2Sya.jpg", "https://i.imgur.com/UdThxKC.jpg", "https://i.imgur.com/QTPCMeL.jpg", "https://i.imgur.com/wcEclQv.jpg", "https://i.imgur.com/VevtlgJ.jpg"]
+var imagelinks = ["https://i.imgur.com/cTRe4sr.png" , "https://i.imgur.com/E5JeHTB.jpg", "https://i.imgur.com/hpT4QuV.jpeg", "https://i.imgur.com/CbR6Tzj.jpeg", "https://cdn.thewirecutter.com/wp-content/media/2023/08/oledtv-2048px-2002-3x2-1.jpg?auto=webp&width=1024", "https://i.imgur.com/nwoWz1n.jpg", "https://i.imgur.com/j01dqOm.jpg", "https://i.imgur.com/N7Y2Sya.jpg", "https://i.imgur.com/UdThxKC.jpg", "https://i.imgur.com/QTPCMeL.jpg", "https://i.imgur.com/wcEclQv.jpg", "https://i.imgur.com/VevtlgJ.jpg"]
 var searchit = [["socks", "sock", "GV socks", "great value socks", "GV"], ["orange", "oranges", "fruit"], ["orange", "sock", "socks", "orange sock"], ["apple", "fruit", "apples"], ["TV", "television", "telvision"]]
 
 
@@ -482,7 +495,7 @@ var itemcss = [];
 var searchtext = ""; // text in searchbar
 
 var itemid = 1;
-var addItem = function (title, price) {
+var addItem = function (title, price, imgLink) {
     var wholedollar = Math.floor(price);
     var centsonly = Math.round((price - Math.floor(price)) * 100) / 100;
     centsonly = centsonly.toString().slice(2, centsonly.toString().length);
@@ -509,9 +522,13 @@ var addItem = function (title, price) {
 
     p5.classList.add("item_title");
 
-    const div1 = document.createElement("div");
+    const img1 = document.createElement("img");
 
-    div1.classList.add("img");
+    img1.classList.add("img");
+
+    img1.src = checkLink(imgLink);
+
+    console.log(img1.src);
 
     const h11 = document.createElement("h1");
 
@@ -559,7 +576,7 @@ var addItem = function (title, price) {
 
     button1.appendChild(h11);
 
-    div3.appendChild(div1);
+    div3.appendChild(img1);
 
     div3.appendChild(p5);
 
@@ -607,12 +624,13 @@ var displayitem = function (num) {
     } else {
         itemcounter = 1    
     }
-    addItem(items[num]["name"], items[num]["price"]);
+    var imagetext = "";
     if (num < imagelinks.length && imagelinks[num] != "N/A") {
-        imglist.push(imagelinks[num]);
+        imagetext = imagelinks[num];
     } else {
-        // No image in blue text
+        imagetext = "https://i.imgur.com/cZL0LkX.jpeg";
     }
+    addItem(items[num]["name"], items[num]["price"], imagetext);
 }
 var addNoResults = function () {
     const div3 = document.createElement("div");
@@ -672,7 +690,7 @@ var searcher = function() {
         for (k = 0; k < sorteditems.length; k++) { // displays info on screen
             displayitem(sorteditems[sorteditems.length - 1 - k][0]);
         }
-        // load all images here from imglist
+        // if using canvas images load them here
     } else {
         addNoResults();
     }
@@ -732,6 +750,24 @@ $("body").keydown(function (event) {
 var whatletteris = event.key;
 ball.moving(whatletteris);
 });
+
+var modal = document.getElementById("myModal");
+var questionCircleStatus = 0;
+var QuestionCircle = function () {
+    modal.style.display = "block";
+}
+
+var spanx = document.getElementsByClassName("close")[0];
+spanx.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 
 /* 

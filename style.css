@@ -9,9 +9,36 @@
     height: 85px;
     background-color: lightblue;
 }
+.questionholder {
+    width: 10%;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.questioncircle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: lightgrey;
+    border: 1px solid grey;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+}
+.questioncircle:hover {
+    cursor: pointer;
+}
 .searchholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85px;
     width: 35%;
-    margin-left: 38.5%;
+    margin-left: 23.5%;
     margin-right: 28.5%;
 }
 .search {
@@ -146,9 +173,8 @@
 .img {
     width: 150px;
     height: 150px;
-    margin-left: 50px;
+    margin-left: 0px;
     margin-top: 25px;
-    background-color: lightblue;
 }
 .add {
     width: 70px;
@@ -259,6 +285,46 @@
     margin-top: 30px;
     color: rgb(106, 198, 255);
     text-shadow: 0.2px 0.2px rgb(157, 217, 255);
+}
+
+/* The Modal (background) */
+.modal {
+    font-family: Arial, Helvetica, sans-serif;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 input::-webkit-outer-spin-button,

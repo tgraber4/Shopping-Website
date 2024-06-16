@@ -6,6 +6,9 @@
     <script src="https://kit.fontawesome.com/040299a7da.js" crossorigin="anonymous"></script>
     <canvas id="canvas" width="0" height="0"></canvas>
     <div class="top">
+        <div class="questionholder">
+            <button class="questioncircle" onclick="QuestionCircle()">?</button>
+        </div>
         <div class="searchholder">
             <input type="text" class="search" id="searchbar">
         </div>
@@ -25,6 +28,14 @@
     <div id="box"></div>
     <div class="itemsholder" id="itemsholder">
     </div>
+    
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Some text in the Modal..</p>
+        </div>
+      
+      </div>
     <script src="script.js"></script>
 </body>
 </html>
