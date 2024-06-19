@@ -475,9 +475,6 @@ var pricechanger = function (digitnum) {
 
 
 
-// update w3schools and github
-// add question mark
-
 var items = [{"name": "GV Socks", "price": 4.99, "desc": "N/A", "locations": "Any Store", "brand": "GV"}, {"name": "Orange", "desc": "N/A", "price": 1.99}, {"name": "Orange Socks", "price": 3.99, "desc": "N/A", "locations": "Any Store", "brand": "GV"}, {"name": "Apple", "price": 0.99, "desc": "N/A", "locations": "Any Store", "brand": "GV"}, {"name": "TV", "price": 199.99, "desc": "N/A", "locations": "Any Store", "brand": "GV"}]
 var imagelinks = ["https://i.imgur.com/cTRe4sr.png" , "https://i.imgur.com/E5JeHTB.jpg", "https://i.imgur.com/hpT4QuV.jpeg", "https://i.imgur.com/CbR6Tzj.jpeg", "https://cdn.thewirecutter.com/wp-content/media/2023/08/oledtv-2048px-2002-3x2-1.jpg?auto=webp&width=1024", "https://i.imgur.com/nwoWz1n.jpg", "https://i.imgur.com/j01dqOm.jpg", "https://i.imgur.com/N7Y2Sya.jpg", "https://i.imgur.com/UdThxKC.jpg", "https://i.imgur.com/QTPCMeL.jpg", "https://i.imgur.com/wcEclQv.jpg", "https://i.imgur.com/VevtlgJ.jpg"]
 var searchit = [["socks", "sock", "GV socks", "great value socks", "GV"], ["orange", "oranges", "fruit"], ["orange", "sock", "socks", "orange sock"], ["apple", "fruit", "apples"], ["TV", "television", "telvision"]]
@@ -798,7 +795,8 @@ window.onclick = function(event) {
 
 
 /*
-Create a search engine
-could use
+------------ Future Updates ------------
+1.) maybe add a proper search engine
+    - could use https://programmablesearchengine.google.com/controlpanel/create
+2.) Finish cart, adding items, item showcasing, homepage, etc.
 */
-// https://programmablesearchengine.google.com/controlpanel/create
